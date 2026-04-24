@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!--
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║  SITE INSTITUCIONAL — BALADA                                    ║
-  ║                                                                  ║
-  ║  RENAME → FLEUR                                                  ║
-  ║  Para renomear o site de "Balada" para "Fleur", faça busca      ║
-  ║  global por "Balada" (e "BALADA") e substitua por "Fleur" /     ║
-  ║  "FLEUR" nos arquivos: index.html, js/main.js                   ║
-  ║  (css/style.css não tem hardcode do nome — sem alterações lá).  ║
-  ║                                                                  ║
-  ║  Pontos marcados com "RENAME:" ao longo do código.              ║
-  ╚══════════════════════════════════════════════════════════════════╝
--->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- RENAME: Atualizar title para "Fleur — Veste o seu ritmo" -->
-  <title>Balada — Veste o seu ritmo</title>
+  <title>Fleur — Veste o seu ritmo</title>
 
-  <meta name="description" content="Balada — Multimarcas de moda feminina. Dress To, Animale Jeans, Isla e Manolita. Enviamos para todo o Brasil." />
+  <meta name="description" content="Fleur — Multimarcas de moda feminina. Dress To, Animale Jeans, Isla e Manolita. Enviamos para todo o Brasil." />
   <meta name="theme-color" content="#0d0d0d" />
 
   <!-- Open Graph -->
-  <!-- RENAME: Atualizar og:title e og:site_name para "Fleur" -->
-  <meta property="og:title" content="Balada — Veste o seu ritmo" />
+  <meta property="og:title" content="Fleur — Veste o seu ritmo" />
   <meta property="og:description" content="Multimarcas de moda feminina. Dress To, Animale Jeans, Isla e Manolita. Enviamos para todo o Brasil." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
@@ -42,13 +27,11 @@
 
   <!-- ============================================================
        HEADER / NAVEGAÇÃO
-       RENAME: texto "BALADA" → "FLEUR" no .nav__logo-link
        ============================================================ -->
   <header class="header" id="header">
     <nav class="nav" aria-label="Navegação principal">
 
-      <!-- RENAME: "BALADA" → "FLEUR" e aria-label abaixo -->
-      <a href="#inicio" class="nav__logo" aria-label="Balada — página inicial">BALADA</a>
+      <a href="#inicio" class="nav__logo" aria-label="Fleur — página inicial">FLEUR</a>
 
       <ul class="nav__links" id="navLinks" role="list">
         <li><a href="#inicio"     class="nav__link">Início</a></li>
@@ -85,8 +68,7 @@
 
     <div class="hero__content">
       <p class="hero__eyebrow">Bem-vinda à</p>
-      <!-- RENAME: "BALADA" → "FLEUR" -->
-      <h1 class="hero__title">BALADA</h1>
+      <h1 class="hero__title">FLEUR</h1>
       <p class="hero__slogan">Veste o seu ritmo</p>
       <a href="#marcas" class="hero__cta">Explorar coleção</a>
     </div>
@@ -325,22 +307,17 @@
 
   <!-- ============================================================
        SOBRE A LOJA
-       RENAME: "Balada" → "Fleur" nos textos e aria-labels abaixo
-       IMAGEM: Substituir .about__img por:
-         <img src="images/sobre.jpg" alt="Loja Balada" />
        ============================================================ -->
-  <section class="section about" id="sobre" aria-label="Sobre a Balada">
+  <section class="section about" id="sobre" aria-label="Sobre a Fleur">
     <div class="container">
       <div class="about__inner">
 
         <div class="about__text fade-in">
           <p class="section__eyebrow">Nossa história</p>
-          <!-- RENAME: "Balada" → "Fleur" no h2 -->
-          <h2 class="section__title section__title--left">Sobre a Balada</h2>
+          <h2 class="section__title section__title--left">Sobre a Fleur</h2>
 
-          <!-- RENAME: "Balada" → "Fleur" nos parágrafos -->
           <p class="about__p">
-            A <strong>Balada</strong> nasceu da paixão por moda feminina com personalidade.
+            A <strong>Fleur</strong> nasceu da paixão por moda feminina com personalidade.
             Somos uma multimarcas que acredita que cada mulher tem seu próprio ritmo
             — e a roupa certa celebra exatamente isso.
           </p>
@@ -376,8 +353,7 @@
 
         <div class="about__media fade-in fade-in-delay-2">
           <!-- IMAGEM: substituir pelo elemento abaixo quando tiver foto:
-               <img src="images/sobre.jpg" alt="Loja Balada" class="about__photo" />
-               RENAME: alt="Loja Fleur" -->
+               <img src="images/sobre.jpg" alt="Loja Fleur" class="about__photo" /> -->
           <div class="about__img"
                role="img" aria-label="Foto da loja — aguardando imagem"></div>
           <div class="about__media-deco" aria-hidden="true"></div>
@@ -390,7 +366,6 @@
 
   <!-- ============================================================
        CONTATO
-       RENAME: Atualizar mensagem do WhatsApp link ("Balada" → "Fleur")
        ============================================================ -->
   <section class="section contact" id="contato" aria-label="Contato">
     <div class="container">
@@ -414,8 +389,7 @@
           </div>
           <h3 class="contact__card-title">WhatsApp</h3>
           <p class="contact__card-number">(28) 99912-9370</p>
-          <!-- RENAME: Atualizar o texto da mensagem: "Balada" → "Fleur" -->
-          <a href="https://wa.me/5528999129370?text=Olá!%20Vim%20pelo%20site%20da%20Balada%20e%20gostaria%20de%20saber%20mais."
+          <a href="https://wa.me/5528999129370?text=Olá!%20Vim%20pelo%20site%20da%20Fleur%20e%20gostaria%20de%20saber%20mais."
              class="contact__wpp-btn"
              target="_blank"
              rel="noopener noreferrer"
@@ -469,14 +443,12 @@
 
   <!-- ============================================================
        FOOTER
-       RENAME: "BALADA" → "FLEUR" e "Balada" → "Fleur" abaixo
        ============================================================ -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer__inner">
 
-        <!-- RENAME: "BALADA" → "FLEUR" -->
-        <p class="footer__logo">BALADA</p>
+        <p class="footer__logo">FLEUR</p>
         <p class="footer__slogan">Veste o seu ritmo</p>
 
         <nav class="footer__nav" aria-label="Links do rodapé">
@@ -490,9 +462,8 @@
 
         <div class="footer__divider" aria-hidden="true"></div>
 
-        <!-- RENAME: "Balada" → "Fleur" -->
         <p class="footer__copy">
-          &copy; <span id="year"></span> Balada. Todos os direitos reservados.
+          &copy; <span id="year"></span> Fleur. Todos os direitos reservados.
         </p>
 
       </div>

@@ -1,10 +1,5 @@
 /**
- * BALADA — main.js
- *
- * RENAME: Quando renomear para "Fleur", atualizar apenas:
- *   1. O texto da mensagem do WhatsApp na função openWhatsApp (se existir)
- *   2. O comentário de cabeçalho acima
- * O restante do código não tem hardcode do nome da loja.
+ * FLEUR — main.js
  *
  * Módulos:
  *   - headerScroll   : adiciona .scrolled ao fazer scroll
