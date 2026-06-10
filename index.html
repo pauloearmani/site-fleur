@@ -4,472 +4,340 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Fleur — Veste o seu ritmo</title>
+  <title>Fleur — Boutique Multimarcas Feminina</title>
 
-  <meta name="description" content="Fleur — Multimarcas de moda feminina. Dress To, Animale Jeans, Isla e Manolita. Enviamos para todo o Brasil." />
-  <meta name="theme-color" content="#0d0d0d" />
+  <meta name="description" content="Fleur — boutique multimarcas de moda feminina. Curadoria de Dress To, Animale Jeans, Isla e Manolita. Atendimento pessoal e envio para todo o Brasil." />
+  <meta name="theme-color" content="#211a16" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Fleur — Veste o seu ritmo" />
-  <meta property="og:description" content="Multimarcas de moda feminina. Dress To, Animale Jeans, Isla e Manolita. Enviamos para todo o Brasil." />
+  <meta property="og:title" content="Fleur — Boutique Multimarcas Feminina" />
+  <meta property="og:description" content="Curadoria de moda feminina: Dress To, Animale Jeans, Isla e Manolita. Envio para todo o Brasil." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="images/hero.jpg" />
 
-  <!-- Fonts: Cormorant Garamond (serif elegante) + Jost (sans clean) -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preload" as="image" href="images/hero.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-  <!-- ============================================================
-       HEADER / NAVEGAÇÃO
-       ============================================================ -->
-  <header class="header" id="header">
-    <nav class="nav" aria-label="Navegação principal">
+  <!-- ════════════════════ PRELOADER ════════════════════ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader__word">F&thinsp;L&thinsp;E&thinsp;U&thinsp;R</span>
+  </div>
 
-      <a href="#inicio" class="nav__logo" aria-label="Fleur — página inicial">FLEUR</a>
+
+  <!-- ════════════════════ HEADER ════════════════════ -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Navegação principal">
+
+      <a href="#inicio" class="nav__logo" aria-label="Fleur — voltar ao início">FLEUR</a>
 
       <ul class="nav__links" id="navLinks" role="list">
-        <li><a href="#inicio"     class="nav__link">Início</a></li>
-        <li><a href="#marcas"     class="nav__link">Marcas</a></li>
-        <li><a href="#categorias" class="nav__link">Categorias</a></li>
-        <li><a href="#lookbook"   class="nav__link">Lookbook</a></li>
-        <li><a href="#sobre"      class="nav__link">Sobre</a></li>
-        <li><a href="#contato"    class="nav__link">Contato</a></li>
+        <li><a href="#boutique"    class="nav__link">A Boutique</a></li>
+        <li><a href="#marcas"      class="nav__link">Marcas</a></li>
+        <li><a href="#galeria"     class="nav__link">Galeria</a></li>
+        <li><a href="#experiencia" class="nav__link">Experiência</a></li>
+        <li><a href="#visita"      class="nav__link">Visite</a></li>
+        <li class="nav__cta-item">
+          <a href="https://wa.me/5528999129370" target="_blank" rel="noopener" class="nav__cta">WhatsApp</a>
+        </li>
       </ul>
 
-      <button class="nav__hamburger" id="hamburger"
-              aria-label="Abrir menu de navegação"
-              aria-expanded="false"
-              aria-controls="navLinks">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav__toggle" id="navToggle"
+              aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
       </button>
 
     </nav>
   </header>
 
 
-  <!-- ============================================================
-       HERO
-       IMAGEM: Substituir .hero__bg pelo arquivo real:
-         background-image: url('images/hero.jpg');
-         background-size: cover;
-         background-position: center top;
-       ============================================================ -->
-  <section class="hero" id="inicio" aria-label="Seção principal">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
+  <main>
 
-    <div class="hero__content">
-      <p class="hero__eyebrow">Bem-vinda à</p>
-      <h1 class="hero__title">FLEUR</h1>
-      <p class="hero__slogan">Veste o seu ritmo</p>
-      <a href="#marcas" class="hero__cta">Explorar coleção</a>
-    </div>
+    <!-- ════════════════════ HERO ════════════════════ -->
+    <section class="hero" id="inicio" aria-label="Apresentação">
+      <figure class="hero__media" aria-hidden="true">
+        <img src="images/hero.jpg" alt="" class="hero__img" id="heroImg" />
+      </figure>
+      <div class="hero__veil" aria-hidden="true"></div>
 
-    <a href="#marcas" class="hero__scroll" aria-label="Rolar para as marcas">
-      <span class="hero__scroll-line" aria-hidden="true"></span>
-    </a>
-  </section>
+      <div class="hero__content container">
+        <p class="hero__eyebrow reveal-hero">Boutique multimarcas · moda feminina</p>
+        <h1 class="hero__title reveal-hero" aria-label="Fleur">
+          <span>F</span><span>L</span><span>E</span><span>U</span><span>R</span>
+        </h1>
+        <p class="hero__tagline reveal-hero"><em>Veste o seu ritmo</em></p>
 
+        <div class="hero__actions reveal-hero">
+          <a href="#boutique" class="btn btn--ghost">Conhecer a boutique</a>
+          <a href="https://wa.me/5528999129370" target="_blank" rel="noopener" class="btn btn--line">Falar no WhatsApp</a>
+        </div>
+      </div>
 
-  <!-- ============================================================
-       STRIP — ticker animado
-       ============================================================ -->
-  <div class="strip" aria-hidden="true">
-    <div class="strip__track">
-      <!-- Duplicado para loop contínuo sem JS -->
-      <span>✦ Frete para todo o Brasil</span>
-      <span>✦ Multimarcas Femininas</span>
-      <span>✦ Dress To · Animale Jeans · Isla · Manolita</span>
-      <span>✦ Atendimento via WhatsApp</span>
-      <span>✦ Frete para todo o Brasil</span>
-      <span>✦ Multimarcas Femininas</span>
-      <span>✦ Dress To · Animale Jeans · Isla · Manolita</span>
-      <span>✦ Atendimento via WhatsApp</span>
-    </div>
-  </div>
+      <a href="#boutique" class="hero__scroll" aria-label="Rolar a página">
+        <span class="hero__scroll-label">scroll</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
 
 
-  <!-- ============================================================
-       MARCAS
-       IMAGEM: Substituir cada .brand-card__img por:
-         <img src="images/brand-dress-to.jpg" alt="Dress To" />
-         <img src="images/brand-animale.jpg"  alt="Animale Jeans" />
-         <img src="images/brand-isla.jpg"     alt="Isla" />
-         <img src="images/brand-manolita.jpg" alt="Manolita" />
-       ============================================================ -->
-  <section class="section brands" id="marcas" aria-label="Nossas marcas">
-    <div class="container">
-
-      <header class="section__header fade-in">
-        <p class="section__eyebrow">Curadoria exclusiva</p>
-        <h2 class="section__title">Nossas Marcas</h2>
-        <p class="section__subtitle">
-          Selecionamos marcas com alma, identidade e a mesma paixão por moda que você.
-        </p>
-      </header>
-
-      <div class="brands__grid">
-
-        <!-- Dress To -->
-        <article class="brand-card fade-in fade-in-delay-1">
-          <div class="brand-card__img-wrap">
-            <img src="images/dressto.png"
-                 alt="Dress To"
-                 class="brand-card__photo" />
-          </div>
-          <div class="brand-card__body">
-            <p class="brand-card__tag">Roupas</p>
-            <h3 class="brand-card__name">Dress To</h3>
-            <p class="brand-card__desc">
-              Estilo contemporâneo com referências globais. Peças que equilibram
-              conforto e sofisticação para o cotidiano moderno.
-            </p>
-          </div>
-        </article>
-
-        <!-- Animale Jeans -->
-        <article class="brand-card fade-in fade-in-delay-2">
-          <div class="brand-card__img-wrap">
-            <img src="images/animale.webp"
-                 alt="Animale Jeans"
-                 class="brand-card__photo" />
-          </div>
-          <div class="brand-card__body">
-            <p class="brand-card__tag">Roupas</p>
-            <h3 class="brand-card__name">Animale Jeans</h3>
-            <p class="brand-card__desc">
-              O melhor do denim brasileiro. Jeans que moldam, valorizam e
-              acompanham cada movimento com leveza e atitude.
-            </p>
-          </div>
-        </article>
-
-        <!-- Isla -->
-        <article class="brand-card fade-in fade-in-delay-3">
-          <div class="brand-card__img-wrap">
-            <img src="images/isla.webp"
-                 alt="Isla"
-                 class="brand-card__photo" />
-          </div>
-          <div class="brand-card__body">
-            <p class="brand-card__tag">Bolsas</p>
-            <h3 class="brand-card__name">Isla</h3>
-            <p class="brand-card__desc">
-              Acessórios que contam histórias. Bolsas com design único, materiais
-              premium e acabamento artesanal de alta qualidade.
-            </p>
-          </div>
-        </article>
-
-        <!-- Manolita -->
-        <article class="brand-card fade-in fade-in-delay-4">
-          <div class="brand-card__img-wrap">
-            <img src="images/manolita.webp"
-                 alt="Manolita"
-                 class="brand-card__photo"
-                 style="object-position: right center;" />
-          </div>
-          <div class="brand-card__body">
-            <p class="brand-card__tag">Calçados</p>
-            <h3 class="brand-card__name">Manolita</h3>
-            <p class="brand-card__desc">
-              Do básico ao extraordinário. Calçados que elevam qualquer look com
-              elegância, personalidade e conforto real.
-            </p>
-          </div>
-        </article>
-
+    <!-- ════════════════════ MARQUEE ════════════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Dress To</span><i>✦</i><span>Animale Jeans</span><i>✦</i><span>Isla</span><i>✦</i><span>Manolita</span><i>✦</i>
+        <span>Dress To</span><i>✦</i><span>Animale Jeans</span><i>✦</i><span>Isla</span><i>✦</i><span>Manolita</span><i>✦</i>
+        <span>Dress To</span><i>✦</i><span>Animale Jeans</span><i>✦</i><span>Isla</span><i>✦</i><span>Manolita</span><i>✦</i>
       </div>
     </div>
-  </section>
 
 
-  <!-- ============================================================
-       CATEGORIAS
-       IMAGEM: Substituir cada .cat-card__bg pelo arquivo real:
-         .cat-card__bg--roupas   → background-image: url('images/cat-roupas.jpg')
-         .cat-card__bg--bolsas   → background-image: url('images/cat-bolsas.jpg')
-         .cat-card__bg--calcados → background-image: url('images/cat-calcados.jpg')
-       ============================================================ -->
-  <section class="section categories" id="categorias" aria-label="Categorias">
+    <!-- ════════════════════ A BOUTIQUE ════════════════════ -->
+    <section class="boutique section" id="boutique" aria-labelledby="boutiqueTitle">
+      <div class="container boutique__grid">
 
-    <header class="section__header container fade-in">
-      <p class="section__eyebrow">O que você procura?</p>
-      <h2 class="section__title">Categorias</h2>
-    </header>
+        <header class="boutique__head reveal">
+          <p class="eyebrow">A boutique</p>
+          <h2 class="title" id="boutiqueTitle">Um espaço pensado<br /><em>para o seu tempo</em></h2>
+        </header>
 
-    <div class="categories__grid">
-
-      <article class="cat-card fade-in fade-in-delay-1">
-        <div class="cat-card__bg cat-card__bg--roupas"
-             role="img" aria-label="Roupas"
-             style="background-image: url('images/dress2.webp');"></div>
-        <div class="cat-card__overlay" aria-hidden="true"></div>
-        <div class="cat-card__content">
-          <h3 class="cat-card__title">Roupas</h3>
-          <p class="cat-card__brands">Dress To · Animale Jeans</p>
-        </div>
-      </article>
-
-      <article class="cat-card fade-in fade-in-delay-2">
-        <div class="cat-card__bg cat-card__bg--bolsas"
-             role="img" aria-label="Bolsas"
-             style="background-image: url('images/isla2.webp');"></div>
-        <div class="cat-card__overlay" aria-hidden="true"></div>
-        <div class="cat-card__content">
-          <h3 class="cat-card__title">Bolsas</h3>
-          <p class="cat-card__brands">Isla</p>
-        </div>
-      </article>
-
-      <article class="cat-card fade-in fade-in-delay-3">
-        <div class="cat-card__bg cat-card__bg--calcados"
-             role="img" aria-label="Calçados"
-             style="background-image: url('images/manolita2.webp'); background-position: right center;"></div>
-        <div class="cat-card__overlay" aria-hidden="true"></div>
-        <div class="cat-card__content">
-          <h3 class="cat-card__title">Calçados</h3>
-          <p class="cat-card__brands">Manolita</p>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       LOOKBOOK / GALERIA
-       IMAGEM: Substituir cada .look__item por <img>:
-         <img src="images/look-01.jpg" alt="Look 1 — Dress To" />
-         <img src="images/look-02.jpg" alt="Look 2 — Animale Jeans" />
-         ... até look-06
-       Remover a classe .look__item e usar <img> com object-fit: cover
-       ============================================================ -->
-  <section class="section lookbook" id="lookbook" aria-label="Lookbook">
-    <div class="container">
-
-      <header class="section__header fade-in">
-        <p class="section__eyebrow">Inspiração</p>
-        <h2 class="section__title">Lookbook</h2>
-        <p class="section__subtitle">Montamos os looks, você escolhe o seu.</p>
-      </header>
-
-      <div class="lookbook__grid" aria-label="Galeria de looks">
-
-        <!-- IMAGEM 1: substituir por <img src="images/look-01.jpg" alt="Look 1"> -->
-        <div class="look__item look__item--a fade-in"
-             role="img" aria-label="Look 1 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">01</span>
-        </div>
-
-        <!-- IMAGEM 2: substituir por <img src="images/look-02.jpg" alt="Look 2"> -->
-        <div class="look__item look__item--b fade-in fade-in-delay-1"
-             role="img" aria-label="Look 2 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">02</span>
-        </div>
-
-        <!-- IMAGEM 3: substituir por <img src="images/look-03.jpg" alt="Look 3"> -->
-        <div class="look__item look__item--c fade-in fade-in-delay-2"
-             role="img" aria-label="Look 3 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">03</span>
-        </div>
-
-        <!-- IMAGEM 4: substituir por <img src="images/look-04.jpg" alt="Look 4"> -->
-        <div class="look__item look__item--d fade-in fade-in-delay-1"
-             role="img" aria-label="Look 4 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">04</span>
-        </div>
-
-        <!-- IMAGEM 5: substituir por <img src="images/look-05.jpg" alt="Look 5"> -->
-        <div class="look__item look__item--e fade-in fade-in-delay-2"
-             role="img" aria-label="Look 5 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">05</span>
-        </div>
-
-        <!-- IMAGEM 6: substituir por <img src="images/look-06.jpg" alt="Look 6"> -->
-        <div class="look__item look__item--f fade-in fade-in-delay-3"
-             role="img" aria-label="Look 6 — aguardando imagem">
-          <span class="look__num" aria-hidden="true">06</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       SOBRE A LOJA
-       ============================================================ -->
-  <section class="section about" id="sobre" aria-label="Sobre a Fleur">
-    <div class="container">
-      <div class="about__inner">
-
-        <div class="about__text fade-in">
-          <p class="section__eyebrow">Nossa história</p>
-          <h2 class="section__title section__title--left">Sobre a Fleur</h2>
-
-          <p class="about__p">
-            A <strong>Fleur</strong> nasceu da paixão por moda feminina com personalidade.
-            Somos uma multimarcas que acredita que cada mulher tem seu próprio ritmo
-            — e a roupa certa celebra exatamente isso.
+        <div class="boutique__text reveal">
+          <p>
+            A <strong>Fleur</strong> nasceu da vontade de vestir mulheres reais — no ritmo
+            delas. Em um ambiente claro e acolhedor, reunimos uma curadoria de marcas
+            que acreditam em design, qualidade e personalidade.
           </p>
-          <p class="about__p">
-            Reunimos marcas que admiramos: <strong>Dress To, Animale Jeans, Isla e Manolita</strong>.
-            Cada uma com identidade própria, juntas formando um guarda-roupa completo,
-            do casual ao especial.
-          </p>
-          <p class="about__p">
-            Atendemos mulheres de todo o Brasil com carinho, agilidade e um cuidado
-            especial em cada envio.
+          <p>
+            Aqui, cada visita é um momento seu: provador tranquilo, atendimento próximo
+            e peças escolhidas à mão, uma a uma.
           </p>
 
-          <ul class="about__features" aria-label="Diferenciais">
-            <li class="about__feature">
-              <span class="about__feature-icon" aria-hidden="true">✦</span>
-              <span>4 marcas cuidadosamente selecionadas</span>
-            </li>
-            <li class="about__feature">
-              <span class="about__feature-icon" aria-hidden="true">✦</span>
-              <span>Envio para todo o Brasil</span>
-            </li>
-            <li class="about__feature">
-              <span class="about__feature-icon" aria-hidden="true">✦</span>
-              <span>Atendimento personalizado via WhatsApp</span>
-            </li>
-            <li class="about__feature">
-              <span class="about__feature-icon" aria-hidden="true">✦</span>
-              <span>Curadoria exclusiva e renovada</span>
-            </li>
+          <ul class="boutique__facts" role="list">
+            <li><strong>04</strong><span>marcas em curadoria</span></li>
+            <li><strong>1:1</strong><span>atendimento pessoal</span></li>
+            <li><strong>BR</strong><span>envio para todo o país</span></li>
           </ul>
         </div>
 
-        <div class="about__media fade-in fade-in-delay-2">
-          <!-- IMAGEM: substituir pelo elemento abaixo quando tiver foto:
-               <img src="images/sobre.jpg" alt="Loja Fleur" class="about__photo" /> -->
-          <div class="about__img"
-               role="img" aria-label="Foto da loja — aguardando imagem"></div>
-          <div class="about__media-deco" aria-hidden="true"></div>
+        <figure class="boutique__media boutique__media--tall reveal">
+          <img src="images/editorial-mirror.jpg" alt="Interior da Fleur: arara de vestidos em tons de vinho refletida no espelho arqueado" loading="lazy" />
+        </figure>
+
+        <figure class="boutique__media boutique__media--wide reveal">
+          <img src="images/editorial-lounge.jpg" alt="Lounge da boutique com sofá curvo creme, mesa de madeira e flores" loading="lazy" />
+          <figcaption>O lounge da boutique — feito para ficar à vontade.</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════ MARCAS ════════════════════ -->
+    <section class="brands section section--dark" id="marcas" aria-labelledby="brandsTitle">
+      <div class="container">
+
+        <header class="brands__head reveal">
+          <p class="eyebrow eyebrow--light">Curadoria</p>
+          <h2 class="title title--light" id="brandsTitle">Nossas <em>marcas</em></h2>
+        </header>
+
+        <div class="brands__wrap">
+
+          <ul class="brands__list" role="list" id="brandsList">
+            <li class="brand reveal" data-brand="dressto">
+              <a href="https://wa.me/5528999129370?text=Ol%C3%A1!%20Quero%20ver%20as%20novidades%20da%20Dress%20To." target="_blank" rel="noopener" class="brand__row">
+                <span class="brand__index">01</span>
+                <h3 class="brand__name">Dress To</h3>
+                <p class="brand__desc">Estampas autorais e cores que celebram o verão o ano inteiro.</p>
+                <span class="brand__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="brand reveal" data-brand="animale">
+              <a href="https://wa.me/5528999129370?text=Ol%C3%A1!%20Quero%20ver%20as%20novidades%20da%20Animale%20Jeans." target="_blank" rel="noopener" class="brand__row">
+                <span class="brand__index">02</span>
+                <h3 class="brand__name">Animale Jeans</h3>
+                <p class="brand__desc">Denim sofisticado, modelagens precisas e atitude urbana.</p>
+                <span class="brand__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="brand reveal" data-brand="isla">
+              <a href="https://wa.me/5528999129370?text=Ol%C3%A1!%20Quero%20ver%20as%20bolsas%20da%20Isla." target="_blank" rel="noopener" class="brand__row">
+                <span class="brand__index">03</span>
+                <h3 class="brand__name">Isla</h3>
+                <p class="brand__desc">Bolsas de design único, materiais premium e acabamento artesanal.</p>
+                <span class="brand__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="brand reveal" data-brand="manolita">
+              <a href="https://wa.me/5528999129370?text=Ol%C3%A1!%20Quero%20ver%20os%20cal%C3%A7ados%20da%20Manolita." target="_blank" rel="noopener" class="brand__row">
+                <span class="brand__index">04</span>
+                <h3 class="brand__name">Manolita</h3>
+                <p class="brand__desc">Calçados artesanais que unem conforto e elegância.</p>
+                <span class="brand__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="brands__preview" aria-hidden="true">
+            <img src="images/brand-dressto.jpg"  alt="" data-preview="dressto"  class="is-active" />
+            <img src="images/brand-animale.jpg"  alt="" data-preview="animale"  loading="lazy" />
+            <img src="images/brand-isla.jpg"     alt="" data-preview="isla"     loading="lazy" />
+            <img src="images/brand-manolita.jpg" alt="" data-preview="manolita" loading="lazy" />
+          </div>
+
+        </div>
+
+        <p class="brands__note reveal">Toque em uma marca para pedir as novidades pelo WhatsApp.</p>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════ BANDA EDITORIAL ════════════════════ -->
+    <section class="band" aria-label="Frase da casa">
+      <figure class="band__media" aria-hidden="true" data-parallax="26">
+        <img src="images/banda-atelier.jpg" alt="" loading="lazy" />
+      </figure>
+      <div class="band__veil" aria-hidden="true"></div>
+      <blockquote class="band__quote container reveal">
+        <p>“Cada peça é escolhida à mão,<br /><em>para vestir o seu ritmo.”</em></p>
+      </blockquote>
+    </section>
+
+
+    <!-- ════════════════════ GALERIA ════════════════════ -->
+    <section class="gallery section" id="galeria" aria-labelledby="galleryTitle">
+      <div class="container">
+
+        <header class="gallery__head reveal">
+          <p class="eyebrow">Por dentro da Fleur</p>
+          <h2 class="title" id="galleryTitle">A boutique <em>em detalhes</em></h2>
+        </header>
+
+        <div class="gallery__grid" id="galleryGrid">
+          <button class="gallery__item reveal" data-full="images/gal-01.jpg" aria-label="Ampliar foto: corredor de araras da boutique">
+            <img src="images/gal-01.jpg" alt="Corredor da boutique com araras douradas e cortinas leves" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-02.jpg" aria-label="Ampliar foto: araras e flores">
+            <img src="images/gal-02.jpg" alt="Arara de roupas em tons quentes com vasos de flores em primeiro plano" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-03.jpg" aria-label="Ampliar foto: flores sobre a mesa">
+            <img src="images/gal-03.jpg" alt="Vasos de vidro com rosas sobre a mesa da boutique" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-04.jpg" aria-label="Ampliar foto: cabides em close">
+            <img src="images/gal-04.jpg" alt="Close dos cabides de madeira na arara dourada" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-05.jpg" aria-label="Ampliar foto: lounge e araras">
+            <img src="images/gal-05.jpg" alt="Sofá creme do lounge visto entre as peças da arara" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-06.jpg" aria-label="Ampliar foto: cantinho com flores">
+            <img src="images/gal-06.jpg" alt="Mesa lateral espelhada com arranjo de flores ao lado do sofá" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-07.jpg" aria-label="Ampliar foto: vitrine de calçados">
+            <img src="images/gal-07.jpg" alt="Sandálias expostas sobre livros de arte na vitrine" loading="lazy" />
+          </button>
+          <button class="gallery__item reveal" data-full="images/gal-08.jpg" aria-label="Ampliar foto: detalhe Fleur">
+            <img src="images/gal-08.jpg" alt="Bolo branco com o logo Fleur ao lado de flores — inauguração da boutique" loading="lazy" />
+          </button>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ============================================================
-       CONTATO
-       ============================================================ -->
-  <section class="section contact" id="contato" aria-label="Contato">
-    <div class="container">
+    <!-- ════════════════════ EXPERIÊNCIA ════════════════════ -->
+    <section class="exp section section--cream" id="experiencia" aria-labelledby="expTitle">
+      <div class="container">
 
-      <header class="section__header fade-in">
-        <p class="section__eyebrow">Fale conosco</p>
-        <h2 class="section__title">Contato</h2>
-        <p class="section__subtitle">
-          Estamos prontas para te ajudar a encontrar o look perfeito.
-        </p>
-      </header>
+        <header class="exp__head reveal">
+          <p class="eyebrow">A experiência</p>
+          <h2 class="title" id="expTitle">Mais que uma compra,<br /><em>um encontro</em></h2>
+        </header>
 
-      <div class="contact__grid">
+        <div class="exp__grid">
+          <article class="exp__card reveal">
+            <span class="exp__num">01</span>
+            <h3>Curadoria pessoal</h3>
+            <p>Conhecemos cada peça do acervo e ajudamos você a encontrar a que conversa com o seu estilo — sem pressa.</p>
+          </article>
+          <article class="exp__card reveal">
+            <span class="exp__num">02</span>
+            <h3>Provador acolhedor</h3>
+            <p>Um espaço claro e confortável para experimentar com calma, com café e atenção de verdade.</p>
+          </article>
+          <article class="exp__card reveal">
+            <span class="exp__num">03</span>
+            <h3>Envio para todo o Brasil</h3>
+            <p>Escolha pelo WhatsApp e receba em casa, em qualquer lugar do país, com embalagem cuidadosa.</p>
+          </article>
+        </div>
 
-        <!-- Card WhatsApp -->
-        <div class="contact__card fade-in fade-in-delay-1">
-          <div class="contact__icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="contact__card-title">WhatsApp</h3>
-          <p class="contact__card-number">(28) 99912-9370</p>
-          <a href="https://wa.me/5528999129370?text=Olá!%20Vim%20pelo%20site%20da%20Fleur%20e%20gostaria%20de%20saber%20mais."
-             class="contact__wpp-btn"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Chamar no WhatsApp (28) 99912-9370">
+      </div>
+    </section>
+
+
+    <!-- ════════════════════ VISITE ════════════════════ -->
+    <section class="visit section section--dark" id="visita" aria-labelledby="visitTitle">
+      <div class="container visit__grid">
+
+        <div class="visit__info reveal">
+          <p class="eyebrow eyebrow--light">Visite ou chame</p>
+          <h2 class="title title--light" id="visitTitle">Vamos conversar<br /><em>sobre moda?</em></h2>
+
+          <dl class="visit__hours">
+            <div><dt>Segunda a sexta</dt><dd>8h — 18h</dd></div>
+            <div><dt>Sábado</dt><dd>8h — 12h</dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/5528999129370" target="_blank" rel="noopener">(28) 99912-9370</a></dd></div>
+          </dl>
+
+          <a href="https://wa.me/5528999129370?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Fleur." target="_blank" rel="noopener" class="btn btn--gold">
             Chamar no WhatsApp
           </a>
         </div>
 
-        <!-- Card Horários -->
-        <div class="contact__card fade-in fade-in-delay-2">
-          <div class="contact__icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="contact__card-title">Horário de Atendimento</h3>
-          <dl class="contact__hours">
-            <div class="contact__hour-row">
-              <dt>Segunda a Sexta</dt>
-              <dd>8h – 18h</dd>
-            </div>
-            <div class="contact__hour-row">
-              <dt>Sábado</dt>
-              <dd>8h – 12h</dd>
-            </div>
-            <div class="contact__hour-row contact__hour-row--closed">
-              <dt>Domingo</dt>
-              <dd>Fechado</dd>
-            </div>
-          </dl>
-        </div>
-
-        <!-- Card Envio -->
-        <div class="contact__card fade-in fade-in-delay-3">
-          <div class="contact__icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="contact__card-title">Envio Nacional</h3>
-          <p class="contact__card-text">
-            Entregamos para todo o Brasil com embalagem especial e o carinho
-            que cada pedido merece.
-          </p>
-        </div>
+        <figure class="visit__media reveal">
+          <img src="images/gal-06.jpg" alt="Cantinho da boutique com flores e poltronas" loading="lazy" />
+        </figure>
 
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="footer" role="contentinfo">
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="footer">
     <div class="container">
-      <div class="footer__inner">
-
-        <p class="footer__logo">FLEUR</p>
-        <p class="footer__slogan">Veste o seu ritmo</p>
-
-        <nav class="footer__nav" aria-label="Links do rodapé">
-          <a href="#inicio">Início</a>
+      <p class="footer__word" aria-hidden="true">FLEUR</p>
+      <div class="footer__row">
+        <p class="footer__copy">© <span id="year">2026</span> Fleur · Boutique multimarcas feminina</p>
+        <nav class="footer__nav" aria-label="Rodapé">
+          <a href="#boutique">A Boutique</a>
           <a href="#marcas">Marcas</a>
-          <a href="#categorias">Categorias</a>
-          <a href="#lookbook">Lookbook</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#contato">Contato</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#visita">Visite</a>
         </nav>
-
-        <div class="footer__divider" aria-hidden="true"></div>
-
-        <p class="footer__copy">
-          &copy; <span id="year"></span> Fleur. Todos os direitos reservados.
-        </p>
-
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+
+  <!-- ════════════════════ LIGHTBOX ════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Foto anterior">←</button>
+    <img src="" alt="" class="lightbox__img" id="lightboxImg" />
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Próxima foto">→</button>
+  </div>
+
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -1,115 +1,185 @@
-/**
- * FLEUR — main.js
- *
- * Módulos:
- *   - headerScroll   : adiciona .scrolled ao fazer scroll
- *   - mobileMenu     : abre/fecha menu hamburguer
- *   - activeNavLink  : marca link ativo conforme seção visível
- *   - fadeIn         : anima entrada de elementos com Intersection Observer
- *   - footerYear     : preenche o ano atual no rodapé
- *   - smoothScroll   : fallback de scroll suave para browsers antigos
- */
+/* ════════════════════════════════════════════════════════════
+   FLEUR — interações
+   Vanilla JS: preloader, header, menu, reveals, parallax,
+   preview de marcas e lightbox da galeria.
+   ════════════════════════════════════════════════════════════ */
 
-'use strict';
+(() => {
+  "use strict";
 
-/* ── Referências DOM ─────────────────────────────────────────── */
-const header     = document.getElementById('header');
-const hamburger  = document.getElementById('hamburger');
-const navLinks   = document.getElementById('navLinks');
-const yearEl     = document.getElementById('year');
+  const prefersReducedMotion =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ── Preloader ──────────────────────────────────────────── */
+  const loader = document.getElementById("loader");
 
-/* ── 1. Header scroll ────────────────────────────────────────── */
-function updateHeader() {
-  header.classList.toggle('scrolled', window.scrollY > 60);
-}
+  const finishLoading = () => {
+    document.body.classList.add("is-loaded");
+    loader.classList.add("is-done");
+  };
 
-window.addEventListener('scroll', updateHeader, { passive: true });
-updateHeader(); // estado inicial
-
-
-/* ── 2. Menu mobile ──────────────────────────────────────────── */
-function openMenu() {
-  navLinks.classList.add('open');
-  hamburger.classList.add('open');
-  hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeMenu() {
-  navLinks.classList.remove('open');
-  hamburger.classList.remove('open');
-  hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-hamburger.addEventListener('click', () => {
-  const isOpen = navLinks.classList.contains('open');
-  isOpen ? closeMenu() : openMenu();
-});
-
-// Fecha ao clicar em qualquer link
-navLinks.querySelectorAll('.nav__link').forEach(link => {
-  link.addEventListener('click', closeMenu);
-});
-
-// Fecha ao pressionar Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-    closeMenu();
-    hamburger.focus();
+  if (document.readyState === "complete") {
+    finishLoading();
+  } else {
+    window.addEventListener("load", finishLoading);
+    // segurança: nunca prender o visitante no loader
+    setTimeout(finishLoading, 2500);
   }
-});
 
+  /* ── Header sólido ao rolar ─────────────────────────────── */
+  const header = document.getElementById("header");
 
-/* ── 3. Active nav link (IntersectionObserver) ───────────────── */
-const sections   = document.querySelectorAll('section[id]');
-const navLinkEls = document.querySelectorAll('.nav__link');
+  const onScrollHeader = () => {
+    header.classList.toggle("is-solid", window.scrollY > 40);
+  };
+  onScrollHeader();
+  window.addEventListener("scroll", onScrollHeader, { passive: true });
 
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const id = entry.target.id;
-    navLinkEls.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-    });
+  /* ── Menu mobile ────────────────────────────────────────── */
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  const closeMenu = () => {
+    navToggle.classList.remove("is-open");
+    navLinks.classList.remove("is-open");
+    header.classList.remove("menu-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+  navToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", open);
+    header.classList.toggle("menu-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
   });
-}, { rootMargin: '-40% 0px -55% 0px' });
 
-sections.forEach(s => sectionObserver.observe(s));
-
-
-/* ── 4. Fade-in (IntersectionObserver) ──────────────────────── */
-const fadeEls = document.querySelectorAll('.fade-in');
-
-if (fadeEls.length) {
-  const fadeObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target); // dispara apenas uma vez
-    });
-  }, { threshold: 0.12 });
-
-  fadeEls.forEach(el => fadeObserver.observe(el));
-}
-
-
-/* ── 5. Ano no rodapé ────────────────────────────────────────── */
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-
-/* ── 6. Smooth scroll (fallback) ─────────────────────────────── */
-// CSS scroll-behavior: smooth cobre a maioria dos browsers modernos.
-// Este fallback garante o comportamento em Safari mais antigo.
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', e => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (!target) return;
-
-    if (CSS.supports('scroll-behavior', 'smooth')) return; // CSS handle it
-
-    e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeMenu();
   });
-});
+
+  /* ── Reveal on scroll ───────────────────────────────────── */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+  /* ── Parallax sutil ─────────────────────────────────────── */
+  const parallaxEls = [...document.querySelectorAll("[data-parallax]")];
+
+  if (!prefersReducedMotion && parallaxEls.length) {
+    let ticking = false;
+
+    const applyParallax = () => {
+      const vh = window.innerHeight;
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const strength = parseFloat(el.dataset.parallax);
+        // progresso do elemento na viewport: -1 (abaixo) → 1 (acima)
+        const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2);
+        el.style.transform = `translateY(${(-progress * strength).toFixed(2)}px)`;
+      });
+      ticking = false;
+    };
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(applyParallax);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+    applyParallax();
+  }
+
+  /* ── Preview das marcas ─────────────────────────────────── */
+  const brandsList = document.getElementById("brandsList");
+  const previews = [...document.querySelectorAll("[data-preview]")];
+
+  if (brandsList && previews.length) {
+    const showPreview = (key) => {
+      previews.forEach((img) =>
+        img.classList.toggle("is-active", img.dataset.preview === key)
+      );
+    };
+
+    brandsList.querySelectorAll(".brand").forEach((item) => {
+      const key = item.dataset.brand;
+      item.addEventListener("mouseenter", () => showPreview(key));
+      item.addEventListener("focusin", () => showPreview(key));
+    });
+  }
+
+  /* ── Lightbox da galeria ────────────────────────────────── */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const galleryItems = [...document.querySelectorAll(".gallery__item")];
+
+  let currentIndex = -1;
+  let lastFocused = null;
+
+  const showImage = (index) => {
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    lightboxImg.src = item.dataset.full;
+    lightboxImg.alt = item.querySelector("img").alt;
+  };
+
+  const openLightbox = (index) => {
+    lastFocused = document.activeElement;
+    showImage(index);
+    lightbox.hidden = false;
+    requestAnimationFrame(() => lightbox.classList.add("is-open"));
+    document.body.style.overflow = "hidden";
+    lightboxClose.focus();
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    document.body.style.overflow = "";
+    setTimeout(() => {
+      lightbox.hidden = true;
+      lightboxImg.src = "";
+    }, 400);
+    if (lastFocused) lastFocused.focus();
+  };
+
+  galleryItems.forEach((item, i) =>
+    item.addEventListener("click", () => openLightbox(i))
+  );
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrev.addEventListener("click", () => showImage(currentIndex - 1));
+  lightboxNext.addEventListener("click", () => showImage(currentIndex + 1));
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+  });
+
+  /* ── Ano do rodapé ──────────────────────────────────────── */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
